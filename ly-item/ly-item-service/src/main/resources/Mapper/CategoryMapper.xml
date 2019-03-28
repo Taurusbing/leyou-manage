@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.leyou.item.dao.CategoryMapper">
+    <resultMap id="BaseResultMap" type="com.leyou.item.pojo.Category">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+        <result column="is_parent" jdbcType="TINYINT" property="isParent" />
+        <result column="sort" jdbcType="INTEGER" property="sort" />
+    </resultMap>
+
+    <resultMap id="ResultMap" type="com.leyou.item.pojo.Category">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+        <result column="is_parent" jdbcType="TINYINT" property="isParent" />
+        <result column="sort" jdbcType="INTEGER" property="sort" />
+        <collection property="categories" ofType="com.leyou.item.pojo.Category" >
+            <id column="id1" jdbcType="BIGINT" property="id" />
+            <result column="name1" jdbcType="VARCHAR" property="name" />
+            <result column="parent_id1" jdbcType="BIGINT" property="parentId" />
+            <result column="is_parent1" jdbcType="TINYINT" property="isParent" />
+            <result column="sort1" jdbcType="INTEGER" property="sort" />
+            <collection property="categories" ofType="com.leyou.item.pojo.Category">
+                <id column="id2" jdbcType="BIGINT" property="id" />
+                <result column="name2" jdbcType="VARCHAR" property="name" />
+                <result column="parent_id2" jdbcType="BIGINT" property="parentId" />
+                <result column="is_parent2" jdbcType="TINYINT" property="isParent" />
+                <result column="sort2" jdbcType="INTEGER" property="sort" />
+            </collection>
+        </collection>
+    </resultMap>
+
+    <select id="queryAllCategory" resultMap="ResultMap">
+        select a.id id,a.name name,a.parent_id parent_id,a.is_parent is_parent,a.sort sort,
+        b.id id1,b.name name1,b.parent_id parent_id1,b.is_parent is_parent1,b.sort sort1,
+        c.id id2,c.name name2,c.parent_id parent_id2,c.is_parent is_parent2,c.sort sort2
+        from tb_category b RIGHT JOIN (select id,name,parent_id,is_parent,sort from tb_category where is_parent = 0) c
+        on b.id = c.parent_id LEFT JOIN tb_category a on a.id = b.parent_id
+    </select>
+
+    <select id="queryCategoryByParentId" resultMap="BaseResultMap">
+        select id,name,parent_id,is_parent,sort from tb_category where parent_id = #{pid}
+    </select>
+</mapper>
