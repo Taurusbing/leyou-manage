@@ -22,6 +22,7 @@ public class BrandServiceImpl implements BrandService {
 
     @Override
     public List<Brand> queryAllBrand() {
+        System.out.println("123");
         return brandMapper.queryAllBrand();
     }
 
