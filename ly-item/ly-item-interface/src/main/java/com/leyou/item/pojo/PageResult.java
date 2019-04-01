@@ -15,12 +15,12 @@ import java.util.List;
 public class PageResult<T> {
     private int pageSize;//总页数
 
-    private long total;//总数
+    private int total;//总数
 
     private List<T> datalist;
 
-    public PageResult(long total, List<T> datalist) {
-        this.total = total;
+    public PageResult(int pageSize, List<T> datalist) {
+        this.pageSize = pageSize;
         this.datalist = datalist;
     }
 
