@@ -1,6 +1,5 @@
 package com.leyou.item.service.Impl;
 
-import com.github.pagehelper.ISelect;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.leyou.item.dao.BrandMapper;
