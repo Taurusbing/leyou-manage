@@ -44,7 +44,7 @@ public class BrandServiceImpl implements BrandService {
         Page<Brand> pageInfo = PageHelper.startPage(page, rows)
                 .doSelectPage(() -> brandMapper.queryAllByParams(search, descending, sortBy));
 
-        return new PageResult<Brand>(pageInfo.getTotal(),pageInfo);
+        return new PageResult<Brand>((int) pageInfo.getTotal(),pageInfo);
 
     }
 }

@@ -39,7 +39,7 @@ public class ItemController {
     /*
     * 获取全量的category商品分类
     * */
-    @GetMapping("category/all")
+    @GetMapping("category/list")
     public ResponseEntity<List<Category>> queryAllCate(){
         List<Category> categories = categoryService.queryAllCategory();
         return ResponseEntity.status(HttpStatus.OK).body(categories);
