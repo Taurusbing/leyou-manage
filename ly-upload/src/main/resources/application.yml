@@ -1,0 +1,16 @@
+server:
+  port: 10011
+spring:
+  application:
+    name: upload-server
+#配置文件上传，文件大小
+  servlet:
+    multipart:
+      max-file-size: 5MB
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1

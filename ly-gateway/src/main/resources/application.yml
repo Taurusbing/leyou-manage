@@ -18,6 +18,10 @@ zuul:
       path: /item/**
       serviceId: item-server
       strip-prefix: false
+    upload-server:
+      path: /upload/**
+      serviceId: upload-server
+      strip-prefix: false
 ribbon:
   ConnectTimeout: 1000 # 连接超时时间(ms)
   ReadTimeout: 3500 # 通信超时时间(ms)

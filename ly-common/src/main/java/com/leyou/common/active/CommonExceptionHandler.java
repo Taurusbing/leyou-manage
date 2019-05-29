@@ -1,3 +1,4 @@
+package com.leyou.common.active;/*
 package com.leyou.common.active;
 
 import com.leyou.common.enums.ExceptionEnums;
@@ -10,10 +11,12 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 
+*/
 /**
  * @author xubing
  * @date 2019/3/18
- */
+ *//*
+
 @ControllerAdvice
 public class CommonExceptionHandler {
 
@@ -23,3 +26,4 @@ public class CommonExceptionHandler {
     }
 
 }
+*/

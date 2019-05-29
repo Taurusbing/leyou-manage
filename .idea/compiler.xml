@@ -11,6 +11,7 @@
         <module name="lyiteminterface" />
         <module name="lyitemservice" />
         <module name="lyregistry" />
+        <module name="lyupload" />
       </profile>
     </annotationProcessing>
   </component>
